@@ -1,17 +1,28 @@
-ARG BUILD_FROM=ubuntu:24.04
+ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-# Installer les dépendances
-RUN apt-get update && apt-get install -y --no-install-recommends     curl     openssh-server     ca-certificates     && rm -rf /var/lib/apt/lists/*
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    openssh-server \
+    ca-certificates \
+    bash \
+    && rm -rf /var/lib/apt/lists/*
 
-# Créer le répertoire pour cursor-cli
+# Create directory for cursor-cli
 RUN mkdir -p /cursor-cli
 
-# Télécharger et installer cursor-cli
-RUN cd /cursor-cli &&     curl -Lk 'https://api2.cursor.sh/updates/download-latest?os=cli-linux-x64'     --output cursor_cli.tar.gz &&     tar -xf cursor_cli.tar.gz &&     chmod +x cursor &&     rm cursor_cli.tar.gz
+# Download and install cursor-cli
+RUN cd /cursor-cli && \
+    curl -Lk 'https://api2.cursor.sh/updates/download-latest?os=cli-linux-x64' \
+    --output cursor_cli.tar.gz && \
+    tar -xf cursor_cli.tar.gz && \
+    chmod +x cursor && \
+    rm cursor_cli.tar.gz
 
-# Copier le script de démarrage
+# Copy startup script
 COPY run.sh /
 RUN chmod +x /run.sh
 
-ENTRYPOINT [/run.sh]
+# Set entrypoint
+CMD ["/run.sh"]
