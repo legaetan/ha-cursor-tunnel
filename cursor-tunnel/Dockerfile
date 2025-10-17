@@ -1,13 +1,12 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-# Install dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install Alpine dependencies
+RUN apk add --no-cache \
     curl \
     openssh-server \
     ca-certificates \
-    bash \
-    && rm -rf /var/lib/apt/lists/*
+    bash
 
 # Create directory for cursor-cli
 RUN mkdir -p /cursor-cli
