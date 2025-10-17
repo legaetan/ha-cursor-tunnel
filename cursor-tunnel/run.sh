@@ -1,19 +1,14 @@
-#!/bin/bash
+#!/usr/bin/with-contenv bashio
+
 set -e
 
-# Configuration
-TUNNEL_NAME="${TUNNEL_NAME:-haos}"
-LOG_FILE="/var/log/cursor-tunnel.log"
+TUNNEL_NAME=$(bashio::config 'tunnel_name')
+CURSOR_CLI_PATH="/cursor-cli/cursor"
 
-# Créer le répertoire de logs
-mkdir -p /var/log
+bashio::log.info "Starting Cursor Tunnel with name: ${TUNNEL_NAME}"
 
-# Afficher le démarrage
-echo "[ven. 17 oct. 2025 09:49:06 CEST] Démarrage du tunnel Cursor avec le nom: $TUNNEL_NAME" | tee -a $LOG_FILE
-
-# Renommer le tunnel si nécessaire
-/cursor-cli/cursor tunnel rename $TUNNEL_NAME 2>&1 | tee -a $LOG_FILE || true
-
-# Démarrer le tunnel et afficher les logs
-echo "[ven. 17 oct. 2025 09:49:06 CEST] Démarrage du tunnel..." | tee -a $LOG_FILE
-/cursor-cli/cursor tunnel 2>&1 | tee -a $LOG_FILE
+# The cursor CLI might need to be configured or logged in first.
+# This command will start the tunnel and keep the process in the foreground,
+# which is necessary to keep the addon running.
+# The name is managed via the Cursor IDE or local CLI, not here.
+${CURSOR_CLI_PATH} tunnel
