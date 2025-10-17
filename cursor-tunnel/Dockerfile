@@ -18,9 +18,8 @@ RUN cd /cursor-cli && \
     chmod +x cursor && \
     rm cursor_cli.tar.gz
 
-# Copy startup script
-COPY run.sh /
-RUN chmod +x /run.sh
+# Copy the s6-overlay service definition
+COPY run.sh /etc/services.d/cursor-tunnel/run
+RUN chmod +x /etc/services.d/cursor-tunnel/run
 
-# Set entrypoint
-CMD ["/run.sh"]
+# Let the base image's s6-overlay entrypoint handle the startup
