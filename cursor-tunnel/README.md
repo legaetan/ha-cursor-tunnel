@@ -17,7 +17,7 @@ Cet addon résout le problème des erreurs WebSocket avec Alpine Linux en utilis
 2. Cliquez sur **⋮** (menu) en haut à droite → **Repositories**
 3. Ajoutez ce repository :
    ```
-   https://github.com/VOTRE-USERNAME/ha-cursor-tunnel
+   https://github.com/legaetan/ha-cursor-tunnel
    ```
 4. Cliquez sur **Add**
 5. Fermez la fenêtre et rafraîchissez la page
@@ -112,6 +112,6 @@ Créé pour résoudre les problèmes de compatibilité Alpine Linux avec Cursor 
 
 MIT License
 
-[releases-shield]: https://img.shields.io/github/release/VOTRE-USERNAME/ha-cursor-tunnel.svg
-[releases]: https://github.com/VOTRE-USERNAME/ha-cursor-tunnel/releases
-[license-shield]: https://img.shields.io/github/license/VOTRE-USERNAME/ha-cursor-tunnel.svg
+[releases-shield]: https://img.shields.io/github/release/legaetan/ha-cursor-tunnel.svg
+[releases]: https://github.com/legaetan/ha-cursor-tunnel/releases
+[license-shield]: https://img.shields.io/github/license/legaetan/ha-cursor-tunnel.svg

@@ -1,5 +1,5 @@
 {
-  "codenotary": "your-email@example.com",
+  "codenotary": "legaetan@gmail.com",
   "base": {
     "amd64": "ubuntu:24.04",
     "armv7": "arm32v7/ubuntu:24.04",
