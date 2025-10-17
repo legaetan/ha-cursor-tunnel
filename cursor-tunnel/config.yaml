@@ -1,8 +1,8 @@
 ---
-name: Cursor Tunnel
-version: "1.0.10"
-slug: cursor-tunnel
-description: Cursor CLI SSH Tunnel to access Home Assistant via Cursor IDE
+name: "Cursor Tunnel V2"
+version: "1.0.11"
+slug: "cursor_tunnel_v2"
+description: "Cursor CLI SSH Tunnel to access Home Assistant via Cursor IDE"
 url: https://github.com/legaetan/ha-cursor-tunnel
 arch:
   - amd64
