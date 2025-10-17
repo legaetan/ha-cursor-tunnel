@@ -1,6 +1,6 @@
 ---
 name: Cursor Tunnel
-version: "1.0.4"
+version: "1.0.5"
 slug: cursor-tunnel
 description: Cursor CLI SSH Tunnel to access Home Assistant via Cursor IDE
 url: https://github.com/legaetan/ha-cursor-tunnel
@@ -11,10 +11,6 @@ arch:
 startup: application
 boot: auto
 homeassistant_api: true
-ports:
-  22/tcp: 2222
-ports_description:
-  22/tcp: SSH Server Port
 map:
   - config
 options:
