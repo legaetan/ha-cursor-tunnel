@@ -4,7 +4,6 @@ FROM ${BUILD_FROM}
 # Install Alpine dependencies
 RUN apk add --no-cache \
     curl \
-    openssh-server \
     ca-certificates \
     bash
 
