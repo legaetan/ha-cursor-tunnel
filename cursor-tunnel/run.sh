@@ -1,13 +1,11 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/with-contenv sh
 
 set -e
 
-bashio::log.info "--- DEBUGGING STEP ---"
-bashio::log.info "If you see this message, the s6-overlay setup is working correctly."
-bashio::log.info "The add-on will now sleep for 5 minutes to test stability."
-bashio::log.info "The real 'cursor tunnel' command is temporarily disabled."
+echo "[DEBUG] Add-on script started successfully."
+echo "[DEBUG] This proves the s6-overlay structure is correct."
+echo "[DEBUG] The add-on will now sleep for 5 minutes."
 
 sleep 300
 
-bashio::log.info "Sleep finished. Add-on will now stop."
-bashio::log.info "This confirms the issue is with the 'cursor tunnel' command itself."
+echo "[DEBUG] Sleep finished. Exiting."
