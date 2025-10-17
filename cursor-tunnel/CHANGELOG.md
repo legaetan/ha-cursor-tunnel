@@ -3,9 +3,8 @@
 ## 1.0.0
 
 - Initial release
-- Tunnel SSH Cursor CLI pour Home Assistant
-- Support Ubuntu 24.04 pour compatibilité complète avec Cursor Server
-- Support multi-architecture (amd64, armv7, arm64)
-- Démarrage automatique du tunnel
-- Configuration du nom de tunnel via l'interface HA
-
+- Cursor CLI SSH Tunnel for Home Assistant
+- Ubuntu 24.04 support for full Cursor Server compatibility
+- Multi-architecture support (amd64, armv7, aarch64)
+- Auto-start tunnel on boot
+- Tunnel name configuration via HA interface
