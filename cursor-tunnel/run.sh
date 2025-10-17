@@ -2,12 +2,12 @@
 
 set -e
 
-TUNNEL_NAME=$(bashio::config 'tunnel_name')
-CURSOR_CLI_PATH="/cursor-cli/cursor"
+bashio::log.info "--- DEBUGGING STEP ---"
+bashio::log.info "If you see this message, the s6-overlay setup is working correctly."
+bashio::log.info "The add-on will now sleep for 5 minutes to test stability."
+bashio::log.info "The real 'cursor tunnel' command is temporarily disabled."
 
-bashio::log.info "Starting Cursor Tunnel with name: ${TUNNEL_NAME}"
-bashio::log.info "The tunnel will now run in the foreground. Check your Cursor IDE or local CLI for connection status."
+sleep 300
 
-# Use exec to replace the shell process with the tunnel process.
-# This is crucial for s6-overlay to correctly manage the service.
-exec ${CURSOR_CLI_PATH} tunnel
+bashio::log.info "Sleep finished. Add-on will now stop."
+bashio::log.info "This confirms the issue is with the 'cursor tunnel' command itself."
