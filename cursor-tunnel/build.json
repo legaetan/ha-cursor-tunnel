@@ -1,0 +1,9 @@
+{
+  "build_from": {
+    "amd64": "ubuntu:24.04",
+    "armv7": "arm32v7/ubuntu:24.04",
+    "aarch64": "arm64v8/ubuntu:24.04"
+  },
+  "codenotary": "legaetan@gmail.com"
+}
+
