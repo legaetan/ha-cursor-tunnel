@@ -1,12 +1,13 @@
-#!/usr/bin/with-contenv sh
-# This file is created from scratch to ensure it has correct LF line endings.
+#!/usr/bin/with-contenv bashio
 
 set -e
 
-echo "[SUCCESS] The add-on has started successfully!"
-echo "[SUCCESS] This confirms the s6-overlay structure and file formatting are now correct."
-echo "[INFO] The add-on will now sleep for 5 minutes for stability testing."
+TUNNEL_NAME=$(bashio::config 'tunnel_name')
+CURSOR_CLI_PATH="/cursor-cli/cursor"
 
-sleep 300
+bashio::log.info "Starting Cursor Tunnel with name: ${TUNNEL_NAME}"
+bashio::log.info "The tunnel will now run in the foreground. Check your Cursor IDE or local CLI for connection status."
 
-echo "[INFO] Sleep finished. The test is successful."
+# Use exec to replace the shell process with the tunnel process.
+# This is crucial for s6-overlay to correctly manage the service.
+exec ${CURSOR_CLI_PATH} tunnel
