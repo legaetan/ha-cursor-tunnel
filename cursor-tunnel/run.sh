@@ -6,9 +6,8 @@ TUNNEL_NAME=$(bashio::config 'tunnel_name')
 CURSOR_CLI_PATH="/cursor-cli/cursor"
 
 bashio::log.info "Starting Cursor Tunnel with name: ${TUNNEL_NAME}"
+bashio::log.info "The tunnel will now run in the foreground. Check your Cursor IDE or local CLI for connection status."
 
-# The cursor CLI might need to be configured or logged in first.
-# This command will start the tunnel and keep the process in the foreground,
-# which is necessary to keep the addon running.
-# The name is managed via the Cursor IDE or local CLI, not here.
-${CURSOR_CLI_PATH} tunnel
+# Use exec to replace the shell process with the tunnel process.
+# This is crucial for s6-overlay to correctly manage the service.
+exec ${CURSOR_CLI_PATH} tunnel
